@@ -5,6 +5,7 @@ import android.content.Intent;
 import java.io.File;
 import java.text.SimpleDateFormat;
 
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
@@ -14,7 +15,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class camera_default_example extends AppCompatActivity {
+public class CameraDefaultExample extends AppCompatActivity {
     private final int PHOTO_RESULT = 1;
     private Uri mLastPhotoURI = null;
     private ImageView mPhotoView;
@@ -46,6 +47,10 @@ public class camera_default_example extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if ( requestCode == PHOTO_RESULT && resultCode == RESULT_OK ){
             mPhotoView.setImageBitmap( BitmapFactory.decodeFile( mLastPhotoURI.getPath() ) );
+//            Si no pasamos la url donde guardar
+//            if( data!= null ){
+//                mPhotoView.setImageBitmap( (Bitmap) data.getExtras().get("data")); // Recuperamos en thumbnail
+//            }
         }
     }
 }
